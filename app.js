@@ -1,5 +1,6 @@
 /* Imports */
-// Slice A: import getCountries from fetch-utils.js
+// Slice A: import getCountries from fetch-utils.js xK
+import { getCountries } from './fetch-utils.js';
 // Slice B: import getContinents from fetch-utils.js
 
 import { renderContinentOption, renderCountry } from './render-utils.js';
@@ -15,7 +16,7 @@ let continents = [];
 
 /* Events */
 window.addEventListener('load', async () => {
-    // call findCountries function with no arguments to fetch all countries (Slice A);
+    // call findCountries function with no arguments to fetch all countries (Slice A); xK
     findCountries();
     // Slice B: call asynchronous getContinents fetch function and set to response variable
     // Slice B: set the continents state to the response.data
@@ -23,11 +24,14 @@ window.addEventListener('load', async () => {
 });
 
 async function findCountries(continent) {
-    // Slice A: call the asynchronous fetch function to get the countries
+    // Slice A: call the asynchronous fetch function to get the countries xK
+    const response = await getCountries();
     // Slice C: add continent argument to getCountries function call
     // console log the response object to see all of the nested information returned
-    // Slice A: set the countries state to the response.data
-    // Slice A: call displayCountries function;
+    // Slice A: set the countries state to the response.data xK
+    countries = response.data;
+    // Slice A: call displayCountries function; xK
+    displayCountries();
 }
 
 searchForm.addEventListener('submit', (e) => {
@@ -38,10 +42,13 @@ searchForm.addEventListener('submit', (e) => {
 
 /* Display Functions */
 function displayCountries() {
-    //Slice A: reset the countries List
+    //Slice A: reset the countries List xK
+    countryList.innerHTML = '';
 
     for (const country of countries) {
-        // Slice A: Call imported render countries function and append to list
+        // Slice A: Call imported render countries function and append to list xK
+        const countryEl = renderCountry(country);
+        countryList.append(countryEl);
     }
 }
 
