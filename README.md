@@ -68,3 +68,6 @@ In addition to the table, there is a view you can use to get attributes for drop
 | Attribute | View name            | Object structure            |
 | --------- | -------------------- | --------------------------- |
 | continent | `country_continents` | `{ name: 'North America' }` |
+
+KENNI NOTES
+Chill out, youre gonna be fine.
